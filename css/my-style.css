@@ -20,15 +20,23 @@ html, body {
 }
 #rad {
     position: absolute;
-    top: 20px;
-    left: 43px;
+    top: 55px;
+    left: 80px;
+    color: azure;
+}
+#controls-label {
+    white-space: nowrap;
+    width: 100px;
+    position: absolute;
     color: azure;
 }
 #rotation-range {
     position: absolute;
+    top: 35px;
+    left: 30px;
 }
 #rotation-button {
     position: absolute;
-    top: 50px;
-    left: 28px;
+    top: 85px;
+    left: 65px;
 }
