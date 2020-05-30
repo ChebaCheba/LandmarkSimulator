@@ -21,9 +21,20 @@ function moveRotation() {
     changeColorSun();
 }
 
+function changeScene() {
+    if (changed){
+        displayBasicScene();
+        changed = false;
+    } else {
+        displayPyramidScene();
+        changed = true;
+    }
+}
+
 function initEvent() {
     window.addEventListener('resize', resizeCanvas, false);
     document.getElementById("rotation-button").addEventListener("click", changeRotation);
+    document.getElementById("change-scene").addEventListener("click", changeScene);
     document.addEventListener("keydown", (event) => {if(event.key=="p"){changeRotation();}});
     document.getElementById("rotation-range").addEventListener("input", moveRotation, false);
  }

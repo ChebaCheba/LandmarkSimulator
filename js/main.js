@@ -7,11 +7,13 @@ var light, light2;
 var sun, moon;
 var pivot;
 var rotate;
+var changed;
 
 function main()
 {
     // INIT VAR
     rotate = true;
+    changed = false;
     // RENDERER
     canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
@@ -24,6 +26,7 @@ function main()
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;   
 
     displayBasicScene();
+    //displayPyramidScene();
     // ACTION
     requestAnimationFrame(renderLoop);              // RENDER LOOP
 

@@ -6,8 +6,8 @@ html, body {
 }
 #container {
     position: relative;
-    height: 400px;
-    width: 400px;
+    height: 100%;
+    width: 100%;
 }
 #canvas {
     width: 100%;
@@ -39,4 +39,12 @@ html, body {
     position: absolute;
     top: 85px;
     left: 65px;
+}
+#scene {
+    position: absolute;
+}
+
+#change-scene {
+    position: absolute;
+    left: 1390px;
 }

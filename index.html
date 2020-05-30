@@ -9,6 +9,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/eventhandler.js" type="text/javascript"></script>
     <script src="js/lib/three.min.js"></script>
+    <script src="js/lib/OBJLoader.js"></script>
+    <script src="js/lib/MTLLoader.js"></script>
     <script src="js/lib/orbit-controls.js" type="text/javascript"></script>
     <script src="js/pyramids.js" type="text/javascript"></script>
     <script src="js/scenes.js" type="text/javascript"></script>
@@ -22,7 +24,11 @@
             <input id="rotation-range" type=range min=0 max=16 value=8>
             <label for="rotation-range" id="rad">&#960;/2</label><br>
             <input id="rotation-button" type="button" value="stop" class="btn btn-outline-danger">
+            <!--<div id="scene" class="float-right">-->
+                <input id="change-scene" type="button" value="Change scene" class="btn btn-outline-info">
+            <!--</div>-->
         </div>
+        
     </div>
 </body>
 </html>
