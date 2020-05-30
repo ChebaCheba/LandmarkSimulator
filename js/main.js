@@ -1,8 +1,4 @@
 "use strict"
-
-
-//import { OBJLoader2 } from '../node_modules/three/examples/jsm/loaders/OBJLoader2.js';
-//var OBJLoader2 = require("../node_modules/three/examples/jsm/loaders/OBJLoader2.js");
 var canvas;
 var renderer;
 var scene;
@@ -10,9 +6,12 @@ var camera;
 var light, light2;
 var sun, moon;
 var pivot;
+var rotate;
 
 function main()
 {
+    // INIT VAR
+    rotate = true;
     // RENDERER
     canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
@@ -39,7 +38,7 @@ function main()
     floorTexture.wrapS = THREE.RepeatWrapping;
     floorTexture.wrapT = THREE.RepeatWrapping;
     floorTexture.repeat.set( 4, 4 );
-    var floorMaterial = new THREE.MeshPhongMaterial({map: floorTexture, shininess: 100});
+    var floorMaterial = new THREE.MeshPhongMaterial({map: floorTexture, shininess: 30});
     
     // MESH (GEOMETRY + MATERIAL)
     sun = new THREE.Mesh(geometry, material);
@@ -101,20 +100,24 @@ function handledload(geometry, material)
 
 function changeColorSun(){
     // colors: 0xfff7b3, 0xaaaaaa, ffc1b3, ffd6b3
-    if (pivot.rotation.x>2*Math.PI){
-        pivot.rotation.x = 0.0;
-    } 
-    pivot.rotation.x += 0.01;
-    if (((pivot.rotation.x > Math.PI/6) && (pivot.rotation.x < Math.PI/3)) || ((pivot.rotation.x < 5*Math.PI/6) && (pivot.rotation.x > 2*Math.PI/3))){
+    if (((pivot.rotation.x >= Math.PI/4) && (pivot.rotation.x <= 3*Math.PI/8)) || ((pivot.rotation.x <= 7*Math.PI/4) && (pivot.rotation.x >= 13*Math.PI/8))){
         light.color.setHex(0xfff7b3);
         console.log("amarillo");
-    } else if ((pivot.rotation.x < Math.PI/3) && (pivot.rotation.x > 2*Math.PI/3)) {
+    } else if ((pivot.rotation.x < Math.PI/4) || (pivot.rotation.x > 7*Math.PI/4)) {
         light.color.setHex(0xaaaaaa);
         console.log("blanco");
     } else {
         light.color.setHex(0xff5f3b);
         console.log("rojo");
     }
+}
+
+function sunRotate(){
+    if (pivot.rotation.x>2*Math.PI){
+        pivot.rotation.x = 0.0;
+    } 
+    pivot.rotation.x += 0.01;
+    changeColorSun();
 }
        
 function renderLoop() {
@@ -123,6 +126,8 @@ function renderLoop() {
     renderer.render(scene, camera);
     //mesh.rotation.x = mesh.rotation.x + 0.01;
     //mesh.rotation.y = mesh.rotation.y + 0.01;
-    changeColorSun();
+    if (rotate){
+        sunRotate();
+    }
     requestAnimationFrame(renderLoop);
 }

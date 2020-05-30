@@ -14,7 +14,7 @@ class Model extends THREE.Mesh
     }
     setTextureMaterial()
     {
-         this.material = new THREE.MeshPhongMaterial({map: new THREE.TextureLoader().load("./textures/" + this.imageTexture), shininess: 100});
+         this.material = new THREE.MeshPhongMaterial({map: new THREE.TextureLoader().load("./textures/" + this.imageTexture), shininess: 20});
     }
     setNormalMaterial()
     {
