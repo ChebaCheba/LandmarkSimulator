@@ -1,3 +1,3 @@
 # PyramidSimulator  
   
-A simulator or pyramids done with THREE.js
+A simulator of pyramids done with THREE.js
