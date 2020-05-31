@@ -69,6 +69,7 @@ function displayBasicScene(){
     scene = new THREE.Scene(); 
     
     scene.add(pyramid);
+    scene.add(camera);
     displayFloor(-1.); 
     
     displaySunMoon(50,-10,5,1,100,100);
@@ -119,6 +120,7 @@ function displayPyramidScene(){
 
     //SCENE
     scene = new THREE.Scene();
+    scene.add(camera);
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -158,6 +160,7 @@ function displayEiffel(){
     } );});//});
     //SCENE
     scene = new THREE.Scene();
+    scene.add(camera);
     displayFloor(0); 
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -206,6 +209,7 @@ function displayColosseum(){
  
      //SCENE
      scene = new THREE.Scene();
+     scene.add(camera);
      displayFloor(0);
      displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -253,6 +257,7 @@ function displaySaintBasil(){
 
     //SCENE
     scene = new THREE.Scene();
+    scene.add(camera);
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -300,6 +305,7 @@ function displayLiberty(){
 
     //SCENE
     scene = new THREE.Scene();
+    scene.add(camera);
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -344,6 +350,7 @@ function displayJapaneseTemp(){
 
     //SCENE
     scene = new THREE.Scene();
+    scene.add(camera);
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -390,6 +397,7 @@ function displayEaster(){
 
     //SCENE
     scene = new THREE.Scene();
+    scene.add(camera);
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -414,7 +422,7 @@ function displaySphinx(){
         if ( child instanceof THREE.Mesh ) {
             var mat = new THREE.MeshPhongMaterial( {
                 shininess: 30,
-                map: texture
+                map: texture,
             } );
 
             child.material = mat;
@@ -430,11 +438,12 @@ function displaySphinx(){
     //meshPy.scale.set(0.01,0.01,0.01);
     //meshPy.position.y = -3.5;
     //meshPy.position.x = -5.5;
-    //scene.add( meshPy );
+    scene.add( meshPy );
     } );
 
     //SCENE
     scene = new THREE.Scene();
+    scene.add(camera);
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -482,6 +491,20 @@ function displayBigBen(){
 
     //SCENE
     scene = new THREE.Scene();
+    scene.add(camera);
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
+}
+
+function displayInfo(){
+    // GEOMETRY
+    var info = new THREE.PlaneGeometry(10, 10, 10, 10);
+
+    // MATERIAL
+    var infoTexture = new THREE.TextureLoader().load('./textures/info.png');
+    var infoMaterial = new THREE.MeshPhongMaterial({map: infoTexture, transparent: true});
+    var infoMesh = new THREE.Mesh(info,infoMaterial);
+    infoMesh.name = "info";
+    camera.add(infoMesh);
+    infoMesh.position.set(0,0,-10)
 }

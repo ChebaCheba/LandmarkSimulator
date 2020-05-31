@@ -10,12 +10,14 @@ var rotate;
 var changed;
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
+var infoDisplayed;
 
 function main()
 {
     // INIT VAR
     rotate = true;
     changed = false;
+    infoDisplayed = false;
     // RENDERER
     canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;

@@ -68,6 +68,11 @@ function keyDownEvent(event){
 }
 
 function onMouseClick(event){
+    if (infoDisplayed){
+        camera.remove(camera.children[0]);
+        infoDisplayed = false;
+        return;
+    }
     mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
     raycaster.setFromCamera( mouse, camera );
@@ -78,6 +83,10 @@ function onMouseClick(event){
     if (intersects.length > 0) {
         //document.getElementById("shape-name").innerHTML = intersects[0].object.name;
         console.log(intersects[0].object.name);
+        if(intersects[0].object.name=="landmark"){
+            displayInfo();
+            infoDisplayed = true;
+        }
         //selectedObj = intersects[0].object;
     
     }
