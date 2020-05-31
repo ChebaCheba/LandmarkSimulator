@@ -1,3 +1,3 @@
-# PyramidSimulator  
+# LandmarkSimulator  
   
-A simulator of pyramids done with THREE.js
+A simulator of landmarks done with THREE.js
