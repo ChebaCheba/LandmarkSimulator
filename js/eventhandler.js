@@ -61,10 +61,16 @@ function changeScene() {
       }
 }
 
+function keyDownEvent(event){
+    if(event.key=="p"){
+        changeRotation();
+    }
+}
+
 function initEvent() {
     window.addEventListener('resize', resizeCanvas, false);
     document.getElementById("rotation-button").addEventListener("click", changeRotation);
     document.getElementById("select-scenes").addEventListener("change", changeScene);
-    document.addEventListener("keydown", (event) => {if(event.key=="p"){changeRotation();}});
+    document.addEventListener("keydown", (event) => {keyDownEvent(event)});
     document.getElementById("rotation-range").addEventListener("input", moveRotation, false);
  }

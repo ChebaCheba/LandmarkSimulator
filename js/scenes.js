@@ -7,13 +7,15 @@ function displaySunMoon(ySun, yMoon, sunInts, moonInts, sunD, moonD){
     // GEOMETRY
     var geometry = new THREE.SphereGeometry(1., 100, 100);
     var geometry2 = new THREE.SphereGeometry(0.1, 100, 100);
-    var material = new THREE.MeshBasicMaterial({color: 0xaaaaaa, map: new THREE.TextureLoader().load('./textures/sun-map.jpg')});
-    var material2 = new THREE.MeshBasicMaterial({color: 0xaaaaaa, map: new THREE.TextureLoader().load('./textures/moon-map.jpg')});
+    var material = new THREE.MeshBasicMaterial(/*{color: 0xaaaaaa, map: new THREE.TextureLoader().load('./textures/sun-map.jpg')}*/);
+    var material2 = new THREE.MeshBasicMaterial(/*{color: 0xaaaaaa/*, map: new THREE.TextureLoader().load('./textures/moon-map.jpg')}*/);
     // MESH FOR SUN AND MOON
     sun = new THREE.Mesh(geometry, material);
     sun.position.y = ySun;
+    sun.material.colorWrite = false;
     moon = new THREE.Mesh(geometry2, material2);
-    moon.position.y = yMoon; 
+    moon.position.y = yMoon;
+    moon.material.colorWrite = false; 
     
     // LIGHTS 
     light = new THREE.PointLight(0xffc1b3, sunInts, sunD);
