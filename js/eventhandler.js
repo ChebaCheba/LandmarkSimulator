@@ -34,13 +34,24 @@ function changeScene() {
         case "kukulkan":
             displayPyramidScene();
             break;
-        case "coloseum":
-            displayColoseum();
+        case "colosseum":
+            displayColosseum();
             break;
         case "eiffel":
             displayEiffel();
             break;
-        
+        case "saintB":
+            displaySaintBasil();
+            break;
+        case "statueOL":
+            displayLiberty();
+            break;
+        case "japanTemp":
+            displayJapaneseTemp();
+            break;
+        case "easterSta":
+            displayEaster();
+            break;
       }
 }
 
@@ -48,7 +59,6 @@ function initEvent() {
     window.addEventListener('resize', resizeCanvas, false);
     document.getElementById("rotation-button").addEventListener("click", changeRotation);
     document.getElementById("select-scenes").addEventListener("change", changeScene);
-    //document.getElementById("change-scene").addEventListener("click", changeScene);
     document.addEventListener("keydown", (event) => {if(event.key=="p"){changeRotation();}});
     document.getElementById("rotation-range").addEventListener("input", moveRotation, false);
  }

@@ -24,12 +24,9 @@ function main()
     renderer.setClearColor("black");             
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    //renderer.shadowMap.renderReverseSided = false;   
-
-    //displayColoseum();
-    //displayEiffel();
+    
+    //DISPLAY SCENE
     displayBasicScene();
-    //displayPyramidScene();
     // ACTION
     requestAnimationFrame(renderLoop);              // RENDER LOOP
 
