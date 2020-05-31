@@ -46,5 +46,11 @@ html, body {
 
 #change-scene {
     position: absolute;
-    left: 1390px;
+    left: 1280px;
+}
+
+#change-label {
+    position: absolute;
+    left: 50;
+    color: azure;
 }

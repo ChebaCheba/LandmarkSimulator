@@ -23,8 +23,11 @@ function main()
     renderer.setSize(canvas.width, canvas.height);
     renderer.setClearColor("black");             
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;   
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    //renderer.shadowMap.renderReverseSided = false;   
 
+    //displayColoseum();
+    //displayEiffel();
     displayBasicScene();
     //displayPyramidScene();
     // ACTION

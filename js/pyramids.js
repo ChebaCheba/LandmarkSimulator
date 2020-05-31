@@ -35,7 +35,7 @@ class PyramidModel extends Model{
 class Pyramid extends PyramidModel {
     constructor(){
         super();
-        this.imageTexture = "pyramid.jpg";
+        this.imageTexture = "py2.jpg";
         this.castShadow = true;
         this.receiveShadow = true;
     }
