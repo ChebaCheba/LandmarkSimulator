@@ -31,6 +31,24 @@ function displaySunMoon(ySun, yMoon, sunInts, moonInts, sunD, moonD){
     scene.add(pivot);
 }
 
+function displayFloor(floorY){
+    // GEOMETRY
+    var floor = new THREE.PlaneGeometry(100, 100, 100, 100);
+
+    // MATERIAL
+    var floorTexture = new THREE.TextureLoader().load('./textures/stoneterrain.png');  
+    floorTexture.wrapS = THREE.RepeatWrapping;
+    floorTexture.wrapT = THREE.RepeatWrapping;
+    floorTexture.repeat.set( 6, 6 );
+    var floorMaterial = new THREE.MeshPhongMaterial({map: floorTexture, shininess: 30});
+    var floorMesh = new THREE.Mesh(floor,floorMaterial);
+    floorMesh.material.side = THREE.DoubleSide;
+    floorMesh.rotation.x = Math.PI/2;
+    floorMesh.position.y = floorY;
+    floorMesh.receiveShadow = true;
+    scene.add(floorMesh); 
+}
+
 function displayBasicScene(){
     // GEOMETRY
     var floor = new THREE.PlaneGeometry(50, 50, 50, 50);
@@ -66,24 +84,6 @@ function displayBasicScene(){
     
     displaySunMoon(50,-10,5,1,100,100);
     //scene.add(camera);
-}
-
-function displayFloor(floorY){
-    // GEOMETRY
-    var floor = new THREE.PlaneGeometry(100, 100, 100, 100);
-
-    // MATERIAL
-    var floorTexture = new THREE.TextureLoader().load('./textures/stoneterrain.png');  
-    floorTexture.wrapS = THREE.RepeatWrapping;
-    floorTexture.wrapT = THREE.RepeatWrapping;
-    floorTexture.repeat.set( 6, 6 );
-    var floorMaterial = new THREE.MeshPhongMaterial({map: floorTexture, shininess: 30});
-    var floorMesh = new THREE.Mesh(floor,floorMaterial);
-    floorMesh.material.side = THREE.DoubleSide;
-    floorMesh.rotation.x = Math.PI/2;
-    floorMesh.position.y = floorY;
-    floorMesh.receiveShadow = true;
-    scene.add(floorMesh); 
 }
 
 function displayPyramidScene(){
@@ -127,7 +127,6 @@ function displayPyramidScene(){
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
-
 
 function displayEiffel(){
     // CAMERAS
@@ -370,6 +369,92 @@ function displayEaster(){
     meshPy.rotation.x = -Math.PI/2;
     meshPy.scale.set(0.1,0.1,0.1);
     meshPy.position.y = -3.5;
+    //meshPy.position.x = -5.5;
+    scene.add( meshPy );
+
+    } );
+
+    //SCENE
+    scene = new THREE.Scene();
+    displayFloor(0);
+    displaySunMoon(250,-50, 4, 1, 750, 750);
+}
+
+function displaySphinx(){
+    // CAMERAS
+    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
+    camera.position.set(100., 30., 5.);      
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.maxPolarAngle = Math.PI/2-0.01; 
+    //OBJLOADER
+    var meshPy = null;
+
+    var objLoader = new THREE.OBJLoader();
+    objLoader.load( './models/10085_egypt_sphinx_iterations-2.obj', function ( object ) {
+    object.traverse( function ( child ) {
+        //var texture = new THREE.Texture();
+        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set( 20, 20 );
+        if ( child instanceof THREE.Mesh ) {
+            var mat = new THREE.MeshPhongMaterial( {
+                shininess: 30,
+                map: texture
+            } );
+
+            child.material = mat;
+            child.castShadow = true;
+
+       }
+    });
+    meshPy = object;
+    meshPy.rotation.x = -Math.PI/2;
+    meshPy.scale.set(0.01,0.01,0.01);
+    //meshPy.position.y = -3.5;
+    //meshPy.position.x = -5.5;
+    scene.add( meshPy );
+
+    } );
+
+    //SCENE
+    scene = new THREE.Scene();
+    displayFloor(0);
+    displaySunMoon(250,-50, 4, 1, 750, 750);
+}
+
+function displayBigBen(){
+    // CAMERAS
+    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
+    camera.position.set(130., 80., 50.);      
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.maxPolarAngle = Math.PI/2-0.01; 
+    //OBJLOADER
+    var meshPy = null;
+
+    var objLoader = new THREE.OBJLoader();
+    objLoader.load( './models/15586_Big_Ben_Clock_Tower_v1.obj', function ( object ) {
+    object.traverse( function ( child ) {
+        //var texture = new THREE.Texture();
+        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set( 20, 20 );
+        if ( child instanceof THREE.Mesh ) {
+            var mat = new THREE.MeshPhongMaterial( {
+                shininess: 30,
+                map: texture
+            } );
+
+            child.material = mat;
+            child.castShadow = true;
+
+       }
+    });
+    meshPy = object;
+    meshPy.rotation.x = -Math.PI/2;
+    meshPy.scale.set(5,5,5);
+    meshPy.position.y = -3;
     //meshPy.position.x = -5.5;
     scene.add( meshPy );
 

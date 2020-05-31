@@ -52,6 +52,12 @@ function changeScene() {
         case "easterSta":
             displayEaster();
             break;
+        case "sphinx":
+            displaySphinx();
+            break;
+        case "bigben":
+            displayBigBen();
+            break;
       }
 }
 
