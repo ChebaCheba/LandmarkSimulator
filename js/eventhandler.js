@@ -67,10 +67,27 @@ function keyDownEvent(event){
     }
 }
 
+function onMouseClick(event){
+    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    raycaster.setFromCamera( mouse, camera );
+
+	// calculate objects intersecting the picking ray
+	var intersects = raycaster.intersectObjects( scene.children );
+
+    if (intersects.length > 0) {
+        //document.getElementById("shape-name").innerHTML = intersects[0].object.name;
+        console.log(intersects[0].object.name);
+        //selectedObj = intersects[0].object;
+    
+    }
+}
+
 function initEvent() {
     window.addEventListener('resize', resizeCanvas, false);
     document.getElementById("rotation-button").addEventListener("click", changeRotation);
     document.getElementById("select-scenes").addEventListener("change", changeScene);
     document.addEventListener("keydown", (event) => {keyDownEvent(event)});
     document.getElementById("rotation-range").addEventListener("input", moveRotation, false);
+    document.getElementById("canvas").addEventListener('click', onMouseClick, false);
  }

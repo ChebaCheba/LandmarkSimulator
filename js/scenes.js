@@ -48,24 +48,11 @@ function displayFloor(floorY){
     floorMesh.rotation.x = Math.PI/2;
     floorMesh.position.y = floorY;
     floorMesh.receiveShadow = true;
+    floorMesh.name = "floor";
     scene.add(floorMesh); 
 }
 
 function displayBasicScene(){
-    // GEOMETRY
-    var floor = new THREE.PlaneGeometry(50, 50, 50, 50);
-
-    // MATERIAL
-    var floorTexture = new THREE.TextureLoader().load('./textures/stoneterrain.png');  
-    floorTexture.wrapS = THREE.RepeatWrapping;
-    floorTexture.wrapT = THREE.RepeatWrapping;
-    floorTexture.repeat.set( 4, 4 );
-    var floorMaterial = new THREE.MeshPhongMaterial({map: floorTexture, shininess: 30});
-    var floorMesh = new THREE.Mesh(floor,floorMaterial);
-    floorMesh.material.side = THREE.DoubleSide;
-    floorMesh.rotation.x = Math.PI/2;
-    floorMesh.position.y = -1;
-    floorMesh.receiveShadow = true;
      
     // CAMERAS
     camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
@@ -82,7 +69,7 @@ function displayBasicScene(){
     scene = new THREE.Scene(); 
     
     scene.add(pyramid);
-    scene.add(floorMesh); 
+    displayFloor(-1.); 
     
     displaySunMoon(50,-10,5,1,100,100);
     //scene.add(camera);
@@ -114,13 +101,19 @@ function displayPyramidScene(){
 
             child.material = mat;
             child.castShadow = true;
+            child.rotation.x = -Math.PI/2;
+            child.scale.set(0.01,0.01,0.01);
+            child.name = "landmark";
+            scene.add(child);
 
        }
     });
     meshPy = object;
-    meshPy.rotation.x = -Math.PI/2;
-    meshPy.scale.set(0.01,0.01,0.01);
-    scene.add( meshPy );
+    //meshPy.rotation.x = -Math.PI/2;
+    //meshPy.scale.set(0.01,0.01,0.01);
+    //meshPy.name = "landmark";
+    //console.log(meshPy.name);
+    //scene.add( meshPy );
 
     } );
 
@@ -152,13 +145,15 @@ function displayEiffel(){
             } );
             child.material = mat;
             child.castShadow = true;
-
-
+            child.rotation.x = -Math.PI/2;
+            child.scale.set(0.002,0.002,0.002);
+            child.name = "landmark";
+            scene.add(child);
        }
     meshPy = object;
-    meshPy.rotation.x = -Math.PI/2;
-    meshPy.scale.set(0.002,0.002,0.002);
-    scene.add( meshPy );
+    //meshPy.rotation.x = -Math.PI/2;
+    //meshPy.scale.set(0.002,0.002,0.002);
+    //scene.add( meshPy );
 
     } );});//});
     //SCENE
@@ -192,15 +187,20 @@ function displayColosseum(){
  
              child.material = mat;
              child.castShadow = true;
+            child.scale.set(5,5,5);
+            child.name = "landmark";
+            child.position.y = -5.5;
+            child.position.x = -5.5;
+            scene.add(child);
  
         }
      });
      meshPy = object;
      //meshPy.rotation.x = -Math.PI/2;
-     meshPy.scale.set(5,5,5);
-     meshPy.position.y = -5.5;
-     meshPy.position.x = -5.5;
-     scene.add( meshPy );
+     //meshPy.scale.set(5,5,5);
+     //meshPy.position.y = -5.5;
+     //meshPy.position.x = -5.5;
+     //scene.add( meshPy );
  
      } );
  
@@ -235,15 +235,19 @@ function displaySaintBasil(){
 
             child.material = mat;
             child.castShadow = true;
+            child.rotation.x = -Math.PI/2;
+            child.scale.set(0.001,0.001,0.001);
+            child.name = "landmark";
+            scene.add(child);
 
        }
     });
     meshPy = object;
-    meshPy.rotation.x = -Math.PI/2;
-    meshPy.scale.set(0.001,0.001,0.001);
+    //meshPy.rotation.x = -Math.PI/2;
+    //meshPy.scale.set(0.001,0.001,0.001);
     //meshPy.position.y = -5.5;
     //meshPy.position.x = -5.5;
-    scene.add( meshPy );
+    //scene.add( meshPy );
 
     } );
 
@@ -278,15 +282,19 @@ function displayLiberty(){
 
             child.material = mat;
             child.castShadow = true;
+            child.scale.set(20,20,20);
+            child.name = "landmark";
+            scene.add(child);
+
 
        }
     });
     meshPy = object;
-    meshPy.rotation.y = Math.PI/2;
-    meshPy.scale.set(20,20,20);
+    //meshPy.rotation.y = Math.PI/2;
+    //meshPy.scale.set(20,20,20);
     //meshPy.position.y = -5.5;
     //meshPy.position.x = -5.5;
-    scene.add( meshPy );
+    //scene.add( meshPy );
 
     } );
 
@@ -321,15 +329,16 @@ function displayJapaneseTemp(){
 
             child.material = mat;
             child.castShadow = true;
-
+            child.name = "landmark";
+            scene.add(child);
        }
     });
     meshPy = object;
-    meshPy.rotation.y = Math.PI/2;
+    //meshPy.rotation.y = Math.PI/2;
     //meshPy.scale.set(20,20,20);
     //meshPy.position.y = -5.5;
     //meshPy.position.x = -5.5;
-    scene.add( meshPy );
+    //scene.add( meshPy );
 
     } );
 
@@ -364,16 +373,19 @@ function displayEaster(){
 
             child.material = mat;
             child.castShadow = true;
-
+            child.rotation.x = -Math.PI/2;
+            child.scale.set(0.1,0.1,0.1);
+            child.position.y = -3.5;
+            child.name = "landmark";
+            scene.add(child);
        }
     });
     meshPy = object;
-    meshPy.rotation.x = -Math.PI/2;
-    meshPy.scale.set(0.1,0.1,0.1);
-    meshPy.position.y = -3.5;
+    //meshPy.rotation.x = -Math.PI/2;
+    //meshPy.scale.set(0.1,0.1,0.1);
+    //meshPy.position.y = -3.5;
     //meshPy.position.x = -5.5;
-    scene.add( meshPy );
-
+    //scene.add( meshPy );
     } );
 
     //SCENE
@@ -407,16 +419,18 @@ function displaySphinx(){
 
             child.material = mat;
             child.castShadow = true;
-
+            child.rotation.x = -Math.PI/2;
+            child.scale.set(0.01,0.01,0.01);
+            child.name = "landmark";
+            scene.add(child);
        }
     });
     meshPy = object;
-    meshPy.rotation.x = -Math.PI/2;
-    meshPy.scale.set(0.01,0.01,0.01);
+    //meshPy.rotation.x = -Math.PI/2;
+    //meshPy.scale.set(0.01,0.01,0.01);
     //meshPy.position.y = -3.5;
     //meshPy.position.x = -5.5;
-    scene.add( meshPy );
-
+    //scene.add( meshPy );
     } );
 
     //SCENE
@@ -450,13 +464,17 @@ function displayBigBen(){
 
             child.material = mat;
             child.castShadow = true;
-
+            child.rotation.x = -Math.PI/2;
+            child.scale.set(5,5,5);
+            child.name = "landmark";
+            child.position.y = -3;
+            scene.add(child);
        }
     });
     meshPy = object;
-    meshPy.rotation.x = -Math.PI/2;
-    meshPy.scale.set(5,5,5);
-    meshPy.position.y = -3;
+    //meshPy.rotation.x = -Math.PI/2;
+    //meshPy.scale.set(5,5,5);
+    //meshPy.position.y = -3;
     //meshPy.position.x = -5.5;
     scene.add( meshPy );
 

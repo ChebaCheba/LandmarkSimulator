@@ -8,6 +8,8 @@ var sun, moon;
 var pivot;
 var rotate;
 var changed;
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
 
 function main()
 {
