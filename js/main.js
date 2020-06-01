@@ -26,6 +26,7 @@ function main()
     editM = false;
     view = "pers";
     colorEdit = 0x6134eb;
+    matEdit = new THREE.MeshBasicMaterial({color: colorEdit, wireframe: true});
     // CANVAS
     canvas = document.getElementById("canvas");
     canvas2 = document.getElementById("canvas2");

@@ -14,7 +14,11 @@ class Model extends THREE.Mesh
     }
     setTextureMaterial()
     {
+        if (editM){
+            this.material = matEdit;
+        } else {
          this.material = new THREE.MeshPhongMaterial({map: new THREE.TextureLoader().load("./textures/" + this.imageTexture), shininess: 20});
+        }
     }
     setNormalMaterial()
     {

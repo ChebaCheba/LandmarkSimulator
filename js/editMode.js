@@ -34,6 +34,7 @@ function addObj(obj){
             console.log("piramid");
             var pyramid = new Pyramid();
             pyramid.scale.set(5,5,5);
+            pyramid.setTextureMaterial();
             scene.add(pyramid);
             break;
         case "kn":
@@ -41,15 +42,8 @@ function addObj(obj){
             objLoader.load( './models/altar_pyramid.obj', function ( object ) {
             object.traverse( function ( child ) {
             //var texture = new THREE.Texture();
-            var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
-            texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set( 20, 20 );
         if ( child instanceof THREE.Mesh ) {
-            var mat = new THREE.MeshPhongMaterial( {
-                shininess: 30,
-                color: colorEdit
-            } );
+            var mat = matEdit;
 
             child.material = mat;
             child.castShadow = true;
@@ -67,15 +61,8 @@ function addObj(obj){
      objLoader.load( './models/colosseum.obj', function ( object ) {
      object.traverse( function ( child ) {
          //var texture = new THREE.Texture();
-         var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
-         texture.wrapS = THREE.RepeatWrapping;
-         texture.wrapT = THREE.RepeatWrapping;
-         texture.repeat.set( 20, 20 );
          if ( child instanceof THREE.Mesh ) {
-             var mat = new THREE.MeshPhongMaterial( {
-                 shininess: 30,
-                 color: colorEdit
-             } );
+             var mat = matEdit;
  
              child.material = mat;
              child.castShadow = true;
@@ -93,16 +80,9 @@ function addObj(obj){
         case "el":
             var objLoader = new THREE.OBJLoader();
     objLoader.load( './models/10067_Eiffel_Tower_v1_max2010_it1.obj', function ( object ) {
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
-        texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set( 20, 20 );
     object.traverse( function ( child ) {
         if ( child instanceof THREE.Mesh ) {
-            var mat = new THREE.MeshPhongMaterial( {
-                shininess: 30,
-                color: colorEdit
-            } );
+            var mat = matEdit;
             child.material = mat;
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
@@ -117,16 +97,8 @@ function addObj(obj){
             var objLoader = new THREE.OBJLoader();
     objLoader.load( './models/10086_saint_basil_cathedral_v1_L3.obj', function ( object ) {
     object.traverse( function ( child ) {
-        //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
-        texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set( 20, 20 );
         if ( child instanceof THREE.Mesh ) {
-            var mat = new THREE.MeshPhongMaterial( {
-                shininess: 30,
-               color: colorEdit
-            } );
+            var mat = matEdit;
 
             child.material = mat;
             child.castShadow = true;
@@ -144,16 +116,8 @@ function addObj(obj){
             var objLoader = new THREE.OBJLoader();
     objLoader.load( './models/LibertStatue.obj', function ( object ) {
     object.traverse( function ( child ) {
-        //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
-        texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set( 20, 20 );
         if ( child instanceof THREE.Mesh ) {
-            var mat = new THREE.MeshPhongMaterial( {
-                shininess: 30,
-                color: colorEdit
-            } );
+            var mat = matEdit;
 
             child.material = mat;
             child.castShadow = true;
@@ -171,16 +135,8 @@ function addObj(obj){
             var objLoader = new THREE.OBJLoader();
     objLoader.load( './models/Japanese_Temple.obj', function ( object ) {
     object.traverse( function ( child ) {
-        //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
-        texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set( 20, 20 );
         if ( child instanceof THREE.Mesh ) {
-            var mat = new THREE.MeshPhongMaterial( {
-                shininess: 30,
-                color: colorEdit
-            } );
+            var mat = matEdit;
 
             child.material = mat;
             child.castShadow = true;
@@ -195,16 +151,8 @@ function addObj(obj){
             var objLoader = new THREE.OBJLoader();
     objLoader.load( './models/12329_Statue_v1_l3.obj', function ( object ) {
     object.traverse( function ( child ) {
-        //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
-        texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set( 20, 20 );
         if ( child instanceof THREE.Mesh ) {
-            var mat = new THREE.MeshPhongMaterial( {
-                shininess: 30,
-                color: colorEdit
-            } );
+            var mat = matEdit;
 
             child.material = mat;
             child.castShadow = true;
@@ -221,16 +169,8 @@ function addObj(obj){
             var objLoader = new THREE.OBJLoader();
     objLoader.load( './models/10085_egypt_sphinx_iterations-2.obj', function ( object ) {
     object.traverse( function ( child ) {
-        //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
-        texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set( 20, 20 );
         if ( child instanceof THREE.Mesh ) {
-            var mat = new THREE.MeshPhongMaterial( {
-                shininess: 30,
-                color: colorEdit
-            } );
+            var mat = matEdit;
 
             child.material = mat;
             child.castShadow = true;
@@ -246,16 +186,8 @@ function addObj(obj){
             var objLoader = new THREE.OBJLoader();
     objLoader.load( './models/15586_Big_Ben_Clock_Tower_v1.obj', function ( object ) {
     object.traverse( function ( child ) {
-        //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
-        texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set( 20, 20 );
         if ( child instanceof THREE.Mesh ) {
-            var mat = new THREE.MeshPhongMaterial( {
-                shininess: 30,
-                color: colorEdit
-            } );
+            var mat = matEdit;
 
             child.material = mat;
             child.castShadow = true;
@@ -277,7 +209,9 @@ function translateObj(){
         var x = document.getElementById("x-trans").value;
         var y = document.getElementById("y-trans").value;
         var z = document.getElementById("z-trans").value;
-        selectedObj.position.set(x,y,z);
+        selectedObj.translateX(x);
+        selectedObj.translateY(y);
+        selectedObj.translateZ(z);
     }
 }
 
@@ -292,9 +226,17 @@ function rotateObj(){
 
 function scaleObj(){
     if(selectedObj!=null){
-        var x = document.getElementById("x-scal").value;
-        var y = document.getElementById("y-scal").value;
-        var z = document.getElementById("z-scal").value;
+        var x = document.getElementById("x-scal").value*selectedObj.scale.x;
+        var y = document.getElementById("y-scal").value*selectedObj.scale.y;
+        var z = document.getElementById("z-scal").value*selectedObj.scale.z;
         selectedObj.scale.set(x,y,z);
     }
+}
+
+function changeMat(){
+    selectedObj.material = matEdit;
+}
+
+function changeColor(){
+    selectedObj.material.color.setHex(colorEdit);
 }

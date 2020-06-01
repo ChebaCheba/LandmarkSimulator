@@ -85,9 +85,9 @@ function changeView(){
 
 function changeMode(){
     if(editM){
+        editM = false;
         document.getElementById("edit-trans").value = "Go to EditMode";
         unloadEditTools();
-        editM = false;
     } else{
         document.getElementById("edit-trans").value = "Go to ViewMode";
         loadEditTools();
@@ -144,16 +144,27 @@ function changeMaterial()
     } else if (value == "nm"){
         matEdit = new THREE.MeshNormalMaterial(); 
     } else if (value == "bs"){
-        matEdit = new THREE.MeshBasicMaterial({color: color}); 
+        matEdit = new THREE.MeshBasicMaterial({color: colorEdit}); 
     } else if (value == "lb"){
-        matEdit = new THREE.MeshLambertMaterial({color: color}); 
+        matEdit = new THREE.MeshLambertMaterial({color: colorEdit}); 
     } else if (value == "pg"){
-        matEdit = new THREE.MeshPhongMaterial({color: color, shininess: 100}); 
+        matEdit = new THREE.MeshPhongMaterial({color: colorEdit, shininess: 100}); 
     } else if (value == "im"){
-        var loader = new THREE.TextureLoader();
-        matEdit = new THREE.MeshPhongMaterial({map: loader.load('./imgs/rocksurface.jpg'), shininess: 100}); 
+        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set( 20, 20 );
+        matEdit = new THREE.MeshPhongMaterial({map: texture, shininess: 100}); 
+    }
+    if(selectedObj){
+        changeMat();
     }
 }
+
+function colorPaletteEvent() {
+    colorEdit = document.getElementById("vertexColour").colorValue.value;
+    changeMaterial();
+  }
 
 function initEvent() {
     window.addEventListener('resize', resizeCanvas, false);
