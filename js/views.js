@@ -1,4 +1,7 @@
 function setNormalRenderer(){
+    canvas.style.height = null;
+    canvas.style.width = null;
+    canvas.style.left = null;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     canvas2.style.visibility = 'hidden';
@@ -55,7 +58,7 @@ function displayMultipleViews(xP,yP,zP){
     
     camera2 = new THREE.OrthographicCamera(-10,10, 20, 0, -500, 10000);
     controls2 = new THREE.OrbitControls(camera2, renderer2.domElement);
-    camera2.position.set(40.,5.,5.);
+    camera2.position.set(40.,10.,5.);
     controls2.maxPolarAngle = Math.PI/2+0.01;
     camera2.rotation.x = -Math.PI/2;
 
@@ -70,7 +73,7 @@ function displayMultipleViews(xP,yP,zP){
     
     camera3 = new THREE.OrthographicCamera(-10,10, 20, 0, -500, 10000);
     controls3 = new THREE.OrbitControls(camera3, renderer3.domElement);
-    camera3.position.set(40.,5.,5.);
+    camera3.position.set(40.,10.,5.);
     controls3.maxPolarAngle = Math.PI/2+0.01;
 
     // ORTHOGONAL SIDE
@@ -84,7 +87,7 @@ function displayMultipleViews(xP,yP,zP){
     
     camera4 = new THREE.OrthographicCamera(-10,10, 20, 0, -500, 10000);
     controls4 = new THREE.OrbitControls(camera4, renderer4.domElement);
-    camera4.position.set(40.,5.,5.);
+    camera4.position.set(40.,10.,5.);
     controls4.maxPolarAngle = Math.PI/2+0.01;
     camera4.rotation.y = -Math.PI/2;
 }

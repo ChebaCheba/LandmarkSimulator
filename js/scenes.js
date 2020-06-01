@@ -74,6 +74,11 @@ function displayBasicScene(){
     scene = new THREE.Scene(); 
     scene.add(pyramid);
     scene.add(camera);
+    if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
     displayFloor(-1.); 
     
     displaySunMoon(50,-10,5,1,100,100);
@@ -87,6 +92,8 @@ function displayPyramidScene(){
         displayPerspectiveCam(40.,5.,5.);
     } else if(view=="orth"){
         displayOrthogonalCam(40.,5.,5.);
+    } else {
+        displayMultipleViews(40.,5.,5.);
     }
     //OBJLOADER
     var meshPy = null;
@@ -126,6 +133,11 @@ function displayPyramidScene(){
     //SCENE
     scene = new THREE.Scene();
     scene.add(camera);
+    if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -137,6 +149,8 @@ function displayEiffel(){
         displayPerspectiveCam(130.,20.,5.);
     } else if(view=="orth"){
         displayOrthogonalCam(40.,5.,5.);
+    } else {
+        displayMultipleViews(130.,20.,5.);
     }
     //OBJLOADER
     var meshPy = null;
@@ -168,6 +182,11 @@ function displayEiffel(){
     //SCENE
     scene = new THREE.Scene();
     scene.add(camera);
+    if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
     displayFloor(0); 
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -178,6 +197,8 @@ function displayColosseum(){
         displayPerspectiveCam(70.,7.,5.);
     } else if(view=="orth"){
         displayOrthogonalCam(40.,5.,5.);
+    } else {
+        displayMultipleViews(70.,7.,5.);
     }
      //OBJLOADER
      var meshPy = null;
@@ -218,6 +239,11 @@ function displayColosseum(){
      //SCENE
      scene = new THREE.Scene();
      scene.add(camera);
+     if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
      displayFloor(0);
      displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -228,6 +254,8 @@ function displaySaintBasil(){
         displayPerspectiveCam(130.,30.,5.);
     } else if(view=="orth"){
         displayOrthogonalCam(40.,5.,5.);
+    } else {
+        displayMultipleViews(130.,30.,5.);
     }
     //OBJLOADER
     var meshPy = null;
@@ -267,6 +295,11 @@ function displaySaintBasil(){
     //SCENE
     scene = new THREE.Scene();
     scene.add(camera);
+    if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -277,6 +310,8 @@ function displayLiberty(){
         displayPerspectiveCam(50.,50.,5.);
     } else if(view=="orth"){
         displayOrthogonalCam(40.,5.,5.);
+    } else {
+        displayMultipleViews(50.,50.,5.);
     }
     //OBJLOADER
     var meshPy = null;
@@ -316,6 +351,11 @@ function displayLiberty(){
     //SCENE
     scene = new THREE.Scene();
     scene.add(camera);
+    if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -326,7 +366,9 @@ function displayJapaneseTemp(){
         displayPerspectiveCam(100.,30.,5.);
     } else if(view=="orth"){
         displayOrthogonalCam(40.,5.,5.);
-    } 
+    } else {
+        displayMultipleViews(100.,30.,5.);
+    }
     //OBJLOADER
     var meshPy = null;
 
@@ -362,6 +404,11 @@ function displayJapaneseTemp(){
     //SCENE
     scene = new THREE.Scene();
     scene.add(camera);
+    if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -372,7 +419,9 @@ function displayEaster(){
         displayPerspectiveCam(100.,30.,5.);
     } else if(view=="orth"){
         displayOrthogonalCam(40.,5.,5.);
-    } 
+    } else {
+        displayMultipleViews(100.,30.,5.);
+    }
     //OBJLOADER
     var meshPy = null;
 
@@ -410,6 +459,11 @@ function displayEaster(){
     //SCENE
     scene = new THREE.Scene();
     scene.add(camera);
+    if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -420,6 +474,8 @@ function displaySphinx(){
         displayPerspectiveCam(100.,30.,5.);
     } else if(view=="orth"){
         displayOrthogonalCam(40.,5.,5.);
+    } else {
+        displayMultipleViews(100.,30.,5.);
     }
     //OBJLOADER
     var meshPy = null;
@@ -457,6 +513,11 @@ function displaySphinx(){
     //SCENE
     scene = new THREE.Scene();
     scene.add(camera);
+    if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
@@ -467,6 +528,8 @@ function displayBigBen(){
         displayPerspectiveCam(130.,80.,50.);
     } else if(view=="orth"){
         displayOrthogonalCam(40.,40.,5.);
+    } else {
+        displayMultipleViews(130.,80.,50.);
     }
     //OBJLOADER
     var meshPy = null;
@@ -506,6 +569,11 @@ function displayBigBen(){
     //SCENE
     scene = new THREE.Scene();
     scene.add(camera);
+    if(view=="mult"){
+        scene.add(camera2);
+        scene.add(camera3);
+        scene.add(camera4);
+    }
     displayFloor(0);
     displaySunMoon(250,-50, 4, 1, 750, 750);
 }
