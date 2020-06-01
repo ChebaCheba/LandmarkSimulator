@@ -61,6 +61,20 @@ function changeScene() {
       }
 }
 
+function changeView(){
+    option = document.getElementById("select-cams").value;
+    switch(option) {
+        case "pers":
+            view = "pers";
+            changeScene();
+            break;
+        case "orth":
+            view = "orth";
+            changeScene();
+            break;
+    }
+}
+
 function keyDownEvent(event){
     if(event.key=="p"){
         changeRotation();
@@ -96,6 +110,7 @@ function initEvent() {
     window.addEventListener('resize', resizeCanvas, false);
     document.getElementById("rotation-button").addEventListener("click", changeRotation);
     document.getElementById("select-scenes").addEventListener("change", changeScene);
+    document.getElementById("select-cams").addEventListener("change", changeView);
     document.addEventListener("keydown", (event) => {keyDownEvent(event)});
     document.getElementById("rotation-range").addEventListener("input", moveRotation, false);
     document.getElementById("canvas").addEventListener('click', onMouseClick, false);

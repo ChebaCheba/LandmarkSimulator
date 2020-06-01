@@ -1,5 +1,21 @@
 "use strict"
 
+function displayPerspectiveCam(x, y, z){
+    // CAMERAS
+    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
+    camera.position.set(x, y, z);
+    controls1 = new THREE.OrbitControls(camera, renderer.domElement);
+    controls1.maxPolarAngle = Math.PI/2+0.01;
+}
+
+function displayOrthogonalCam(x,y,z){
+    // CAMERAS
+    camera = new THREE.OrthographicCamera(-10,10, 20, 0, -500, 10000);
+    controls1 = new THREE.OrbitControls(camera, renderer.domElement);
+    camera.position.set(x,y,z);
+    controls1.maxPolarAngle = Math.PI/2+0.01;
+}
+
 function displaySunMoon(ySun, yMoon, sunInts, moonInts, sunD, moonD){
     // CREATE PIVOT FOR S/M ROTATATION
     pivot = new Group();
@@ -54,11 +70,14 @@ function displayFloor(floorY){
 
 function displayBasicScene(){
      
-    // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(20., 5., 5.);      
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI/2+0.01;
+    if(view == "pers"){
+        displayPerspectiveCam(20.,5.,5.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(30.,50.,30.);
+    }
+          
+    //camera.rotation.x = -Math.PI/2;
+    //camera.rotation.z = 1.;
 
     //PYRAMID 
     var pyramid = new Pyramid();
@@ -67,7 +86,6 @@ function displayBasicScene(){
     pyramid.position.y = 4;
     // SCENE
     scene = new THREE.Scene(); 
-    
     scene.add(pyramid);
     scene.add(camera);
     displayFloor(-1.); 
@@ -79,10 +97,11 @@ function displayBasicScene(){
 function displayPyramidScene(){
     
     // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(40., 5., 5.);      
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI/2-0.01; 
+    if(view == "pers"){
+        displayPerspectiveCam(40.,5.,5.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(40.,5.,5.);
+    }
     //OBJLOADER
     var meshPy = null;
 
@@ -106,7 +125,7 @@ function displayPyramidScene(){
             child.scale.set(0.01,0.01,0.01);
             child.name = "landmark";
             scene.add(child);
-
+            
        }
     });
     meshPy = object;
@@ -127,10 +146,12 @@ function displayPyramidScene(){
 
 function displayEiffel(){
     // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(130., 20., 5.);      
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI/2-0.01; 
+    
+    if(view == "pers"){
+        displayPerspectiveCam(130.,20.,5.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(40.,5.,5.);
+    }
     //OBJLOADER
     var meshPy = null;
     var objLoader = new THREE.OBJLoader();
@@ -167,10 +188,11 @@ function displayEiffel(){
 
 function displayColosseum(){
      // CAMERAS
-     camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-     camera.position.set(70., 5., 5.);      
-     var controls = new THREE.OrbitControls(camera, renderer.domElement);
-     controls.maxPolarAngle = Math.PI/2-0.01; 
+     if(view == "pers"){
+        displayPerspectiveCam(70.,7.,5.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(40.,5.,5.);
+    }
      //OBJLOADER
      var meshPy = null;
  
@@ -216,10 +238,11 @@ function displayColosseum(){
 
 function displaySaintBasil(){
     // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(130., 30., 5.);      
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI/2-0.01; 
+    if(view == "pers"){
+        displayPerspectiveCam(130.,30.,5.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(40.,5.,5.);
+    }
     //OBJLOADER
     var meshPy = null;
 
@@ -263,11 +286,12 @@ function displaySaintBasil(){
 }
 
 function displayLiberty(){
-    // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(50., 50., 5.);      
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI/2-0.01; 
+    // CAMERAS 
+    if(view == "pers"){
+        displayPerspectiveCam(50.,50.,5.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(40.,5.,5.);
+    }
     //OBJLOADER
     var meshPy = null;
 
@@ -312,10 +336,11 @@ function displayLiberty(){
 
 function displayJapaneseTemp(){
     // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(100., 30., 5.);      
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI/2-0.01; 
+    if(view == "pers"){
+        displayPerspectiveCam(100.,30.,5.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(40.,5.,5.);
+    } 
     //OBJLOADER
     var meshPy = null;
 
@@ -357,10 +382,11 @@ function displayJapaneseTemp(){
 
 function displayEaster(){
     // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(100., 30., 5.);      
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI/2-0.01; 
+    if(view == "pers"){
+        displayPerspectiveCam(100.,30.,5.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(40.,5.,5.);
+    } 
     //OBJLOADER
     var meshPy = null;
 
@@ -403,11 +429,12 @@ function displayEaster(){
 }
 
 function displaySphinx(){
-    // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(100., 30., 5.);      
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI/2-0.01; 
+    // CAMERAS 
+    if(view == "pers"){
+        displayPerspectiveCam(100.,30.,5.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(40.,5.,5.);
+    }
     //OBJLOADER
     var meshPy = null;
 
@@ -449,11 +476,12 @@ function displaySphinx(){
 }
 
 function displayBigBen(){
-    // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(130., 80., 50.);      
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.maxPolarAngle = Math.PI/2-0.01; 
+    // CAMERAS 
+    if(view == "pers"){
+        displayPerspectiveCam(130.,80.,50.);
+    } else if(view=="orth"){
+        displayOrthogonalCam(40.,40.,5.);
+    }
     //OBJLOADER
     var meshPy = null;
 

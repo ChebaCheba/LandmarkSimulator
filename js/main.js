@@ -1,8 +1,9 @@
 "use strict"
 var canvas;
-var renderer;
+var renderer, renderer2, renderer3, renderer4;
 var scene;
-var camera;
+var camera, camera2, camera3, camera4;
+var controls1, controls2, controls3, controls4;
 var light, light2;
 var sun, moon;
 var pivot;
@@ -11,6 +12,26 @@ var changed;
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
 var infoDisplayed;
+var renderers, cameras, controls;
+var view;
+
+function setNormalRenderer(){
+    renderer = new THREE.WebGLRenderer({canvas: canvas});
+    renderer.setSize(canvas.width, canvas.height);
+    renderer.setClearColor("black");             
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+}
+
+function displayMultipleViews(){
+    renderer = new THREE.WebGLRenderer({canvas: canvas});
+    renderer.setSize(canvas.width/2, canvas.height/2);
+    renderer.setClearColor("black");             
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    camera = new THREE.OrthographicCamera(-10,10, 10, -10, -500, 10000);
+    
+}
 
 function main()
 {
@@ -18,17 +39,14 @@ function main()
     rotate = true;
     changed = false;
     infoDisplayed = false;
+    view = "pers";
     // RENDERER
     canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    renderer = new THREE.WebGLRenderer({canvas: canvas});
-    renderer.setSize(canvas.width, canvas.height);
-    renderer.setClearColor("black");             
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    
+    setNormalRenderer();
+    //displayMultipleViews();    
     //DISPLAY SCENE
     displayBasicScene();
     // ACTION

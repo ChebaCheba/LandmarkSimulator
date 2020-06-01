@@ -1,9 +1,3 @@
-html, body {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
 #container {
     position: relative;
     height: 100%;
@@ -51,6 +45,18 @@ html, body {
 
 #change-label {
     position: absolute;
-    left: 50;
+    left: 50px;
+    color: azure;
+}
+
+#change-camera {
+    position: absolute;
+    top: 600px;
+    left: 30px;
+}
+
+#cam-label {
+    position: absolute;
+    left: 50px;
     color: azure;
 }
