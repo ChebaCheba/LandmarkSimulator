@@ -45,7 +45,7 @@ function displayMultipleViews(xP,yP,zP){
     camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
     camera.position.set(xP, yP, zP);
     controls1 = new THREE.OrbitControls(camera, renderer.domElement);
-    controls1.maxPolarAngle = Math.PI/2+0.01;
+    controls1.maxPolarAngle = Math.PI/2-0.01;
 
     // ORTHOGONAL TOP
     renderer2 = new THREE.WebGLRenderer({canvas: canvas2});
@@ -97,7 +97,7 @@ function displayPerspectiveCam(x, y, z){
     camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
     camera.position.set(x, y, z);
     controls1 = new THREE.OrbitControls(camera, renderer.domElement);
-    controls1.maxPolarAngle = Math.PI/2+0.01;
+    controls1.maxPolarAngle = Math.PI/2-0.01;
 }
 
 function displayOrthogonalCam(x,y,z){

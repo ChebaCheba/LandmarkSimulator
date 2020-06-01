@@ -38,6 +38,6 @@ class Pyramid extends PyramidModel {
         this.imageTexture = "py2.jpg";
         this.castShadow = true;
         this.receiveShadow = true;
-        this.name = "landmark";
+        this.name = "pyramid";
     }
 }

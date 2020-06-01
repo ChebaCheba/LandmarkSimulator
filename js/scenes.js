@@ -116,7 +116,7 @@ function displayPyramidScene(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.01,0.01,0.01);
-            child.name = "landmark";
+            child.name = "kukulkan";
             scene.add(child);
             
        }
@@ -170,7 +170,7 @@ function displayEiffel(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.002,0.002,0.002);
-            child.name = "landmark";
+            child.name = "eiffel";
             scene.add(child);
        }
     meshPy = object;
@@ -220,7 +220,7 @@ function displayColosseum(){
              child.material = mat;
              child.castShadow = true;
             child.scale.set(5,5,5);
-            child.name = "landmark";
+            child.name = "colosseum";
             child.position.y = -5.5;
             child.position.x = -5.5;
             scene.add(child);
@@ -278,7 +278,7 @@ function displaySaintBasil(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.001,0.001,0.001);
-            child.name = "landmark";
+            child.name = "saintbasil";
             scene.add(child);
 
        }
@@ -333,7 +333,7 @@ function displayLiberty(){
             child.material = mat;
             child.castShadow = true;
             child.scale.set(20,20,20);
-            child.name = "landmark";
+            child.name = "statueofliberty";
             scene.add(child);
 
 
@@ -388,7 +388,7 @@ function displayJapaneseTemp(){
 
             child.material = mat;
             child.castShadow = true;
-            child.name = "landmark";
+            child.name = "tojitemp";
             scene.add(child);
        }
     });
@@ -444,7 +444,7 @@ function displayEaster(){
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.1,0.1,0.1);
             child.position.y = -3.5;
-            child.name = "landmark";
+            child.name = "easterstatue";
             scene.add(child);
        }
     });
@@ -498,7 +498,7 @@ function displaySphinx(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.01,0.01,0.01);
-            child.name = "landmark";
+            child.name = "sphinx";
             scene.add(child);
        }
     });
@@ -552,7 +552,7 @@ function displayBigBen(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(5,5,5);
-            child.name = "landmark";
+            child.name = "bigben";
             child.position.y = -3;
             scene.add(child);
        }

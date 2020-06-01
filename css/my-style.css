@@ -1,15 +1,40 @@
 #container {
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
 }
 .can {
     position: absolute;
 }
+.menu-label{
+    position: absoulue;
+    color: azure;
+    display: block;
+    text-align: center;
+}
+#menu{
+    position: absolute;
+    display: block;
+}
 #controls {
     position: absolute;
     top: 20px;
     left: 10px;
+}
+#edit{
+    position: absolute;
+    left: 18%;
+    top: 85%;
+}
+#transform-controls {
+    position: absolute;
+    left: 65%;
+    top: 70%;
+}
+#edit-trans {
+    position: absolute;
+    left: 5%;
+    top: 85%;
 }
 #rad {
     position: absolute;
@@ -38,6 +63,7 @@
 }
 
 #change-scene {
+    display: block;
     position: absolute;
     left: 1280px;
 }
@@ -50,7 +76,7 @@
 
 #change-camera {
     position: absolute;
-    top: 600px;
+    top: 330px;
     left: 30px;
 }
 
@@ -59,3 +85,111 @@
     left: 65px;
     color: azure;
 }
+.cor-label{
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: azure;
+}
+.rot-block{
+    position: absolute;
+    display: block;
+}
+#rot-range-x-label {
+    color: azure;
+    text-align: center;
+}
+#select-label{
+    position: absolute;
+    color: azure;
+    font-size: xx-large;
+    top: 5%;
+    left: 30%;
+}
+.number-input input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    }
+    
+    .number-input input[type=number]::-webkit-inner-spin-button,
+    .number-input input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    }
+    
+    .number-input {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: floralwhite;
+    }
+    
+    .number-input button {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    }
+    
+    .number-input button:before,
+    .number-input button:after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    height: 2px;
+    transform: translate(-50%, -50%);
+    }
+    
+    .number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+    }
+    
+    .number-input input[type=number] {
+    text-align: center;
+    }
+    
+    .number-input.number-input {
+    border: 1px solid #ced4da;
+    width: 10rem;
+    border-radius: .25rem;
+    background-color: black;
+    }
+    
+    .number-input.number-input button {
+    width: 2.6rem;
+    height: .7rem;
+    }
+    
+    .number-input.number-input button.minus {
+    padding-left: 10px;
+    }
+    
+    .number-input.number-input button:before,
+    .number-input.number-input button:after {
+    width: .7rem;
+    background-color: red;
+    }
+    
+    .number-input.number-input input[type=number] {
+    max-width: 4rem;
+    padding: .5rem;
+    border: 1px solid #ced4da;
+    border-width: 0 1px;
+    font-size: 1rem;
+    height: 2rem;
+    color: black;
+    }
+    
+    @media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color:transparent) {
+    
+    .number-input.def-number-input.safari_only button:before,
+    .number-input.def-number-input.safari_only button:after {
+    margin-top: -.3rem;
+    }
+    }
+    }

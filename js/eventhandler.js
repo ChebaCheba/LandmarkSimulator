@@ -1,8 +1,6 @@
 function resizeCanvas() {
     if(view!="mult"){
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        renderer.setSize(canvas.width, canvas.height);
+        setNormalRenderer();
     } else{
         displayMultipleViews(40., 5., 5.);
     }
@@ -85,6 +83,24 @@ function changeView(){
     }
 }
 
+function changeMode(){
+    if(editM){
+        document.getElementById("edit-trans").value = "Go to EditMode";
+        unloadEditTools();
+        editM = false;
+    } else{
+        document.getElementById("edit-trans").value = "Go to ViewMode";
+        loadEditTools();
+        editM = true;
+    }
+}
+
+function putObj(){
+    option = document.getElementById("select-obj").value;
+    console.log(option);
+    addObj(option);
+}
+
 function keyDownEvent(event){
     if(event.key=="p"){
         changeRotation();
@@ -107,21 +123,50 @@ function onMouseClick(event){
     if (intersects.length > 0) {
         //document.getElementById("shape-name").innerHTML = intersects[0].object.name;
         console.log(intersects[0].object.name);
-        if(intersects[0].object.name=="landmark"){
+        if(intersects[0].object.name!="floor" && !(editM)){
             displayInfo();
             infoDisplayed = true;
         }
         //selectedObj = intersects[0].object;
+        if(editM){
+            selectedObj = intersects[0].object;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+intersects[0].object.name;  
+        }
     
+    }
+}
+
+function changeMaterial()
+{
+    value = document.getElementById("select-material").value;
+    if (value == "wf"){
+        matEdit = new THREE.MeshBasicMaterial({color: colorEdit, wireframe: true});
+    } else if (value == "nm"){
+        matEdit = new THREE.MeshNormalMaterial(); 
+    } else if (value == "bs"){
+        matEdit = new THREE.MeshBasicMaterial({color: color}); 
+    } else if (value == "lb"){
+        matEdit = new THREE.MeshLambertMaterial({color: color}); 
+    } else if (value == "pg"){
+        matEdit = new THREE.MeshPhongMaterial({color: color, shininess: 100}); 
+    } else if (value == "im"){
+        var loader = new THREE.TextureLoader();
+        matEdit = new THREE.MeshPhongMaterial({map: loader.load('./imgs/rocksurface.jpg'), shininess: 100}); 
     }
 }
 
 function initEvent() {
     window.addEventListener('resize', resizeCanvas, false);
     document.getElementById("rotation-button").addEventListener("click", changeRotation);
+    document.getElementById("edit-trans").addEventListener("click", changeMode);
     document.getElementById("select-scenes").addEventListener("change", changeScene);
+    document.getElementById("select-obj").addEventListener("change", putObj);
+    document.getElementById("select-material").addEventListener("change", changeMaterial);
     document.getElementById("select-cams").addEventListener("change", changeView);
     document.addEventListener("keydown", (event) => {keyDownEvent(event)});
     document.getElementById("rotation-range").addEventListener("input", moveRotation, false);
     document.getElementById("canvas").addEventListener('click', onMouseClick, false);
+    document.getElementById("trans-button").addEventListener('click', translateObj);
+    document.getElementById("sca-button").addEventListener('click', scaleObj);
+    document.getElementById("rot-button").addEventListener('click', rotateObj);
  }

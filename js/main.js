@@ -4,7 +4,7 @@ var renderer, renderer2, renderer3, renderer4;
 var scene;
 var camera, camera2, camera3, camera4;
 var controls1, controls2, controls3, controls4;
-var light, light2;
+var light, light2, directLight;
 var sun, moon;
 var pivot;
 var rotate;
@@ -12,8 +12,10 @@ var changed;
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
 var infoDisplayed;
-var renderers, cameras, controls;
 var view;
+var editM;
+var colorEdit, matEdit;
+var selectedObj;
 
 function main()
 {
@@ -21,20 +23,30 @@ function main()
     rotate = true;
     changed = false;
     infoDisplayed = false;
+    editM = false;
     view = "pers";
+    colorEdit = 0x6134eb;
     // CANVAS
     canvas = document.getElementById("canvas");
     canvas2 = document.getElementById("canvas2");
     canvas3 = document.getElementById("canvas3");
     canvas4 = document.getElementById("canvas4");
 
+    //EDIT TOOLS
+    document.getElementById("edit").style.visibility = "hidden";
+    document.getElementById("transform-controls").style.visibility = "hidden";
+    document.getElementById("select-label").style.visibility = "hidden";
+
+    //loadEditTools();
+    //RENDERER
     setNormalRenderer();
-    //displayMultipleViews();    
+
     //DISPLAY SCENE
     displayBasicScene();
     // ACTION
     requestAnimationFrame(renderLoop);              // RENDER LOOP
 
+    //INIT EVENT HANDLERS
     initEvent()
 }
 

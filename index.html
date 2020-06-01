@@ -22,14 +22,15 @@
     <script src="js/pyramids.js" type="text/javascript"></script>
     <script src="js/scenes.js" type="text/javascript"></script>
     <script src="js/views.js" type="text/javascript"></script>
+    <script src="js/editMode.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body onload = main();>
     <div id="container">
-    <canvas class="can" id="canvas"></canvas>
-    <canvas class="can" id="canvas2"></canvas>
-    <canvas class="can" id="canvas3"></canvas>
-    <canvas class="can" id="canvas4"></canvas>
+        <canvas class="can" id="canvas"></canvas>
+        <canvas class="can" id="canvas2"></canvas>
+        <canvas class="can" id="canvas3"></canvas>
+        <canvas class="can" id="canvas4"></canvas>
         <div id="controls">
             <label for="controls" id="controls-label">Sun/Moon Rotation Controls</label><br>
             <input id="rotation-range" type=range min=0 max=16 value=8>
@@ -61,6 +62,160 @@
                 </select>
             </div>
         </div>
+        <input id="edit-trans" type="button" value="Go to EditMode" class="btn btn-success">
+        <div id="edit">
+            <div id="menu">
+                <table>
+                    <tr>
+                        <td>
+                          <form action="" id="vertexColour">
+                            <input type="color" id="colorValue" src="imgs/pallete.png" value="#6134eb" onchange="colorPaletteEvent();">
+                          </form>
+                        </td>
+                        <td>
+                            <select class="selectpicker" data-style="btn-info" id="select-material">
+                                <option value="wf">Wireframe</option>
+                                <option value="bs">Basic</option>
+                                <option value="nm">Normal</option>
+                                <option value="lb">Lambert</option>
+                                <option value="pg">Phong</option>
+                                <option value="im">Rock</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="selectpicker pull-right" data-style="btn-info" id="select-obj">
+                                <option value="pd">Giza Pyramid</option>
+                                <option value="kn">Kukulkan Pyramid</option>
+                                <option value="cm">Colosseum</option>
+                                <option value="el">Eiffel Tower</option>
+                                <option value="sb">Saint Basil Cathedral</option>
+                                <option value="sl">Statue of Liberty</option>
+                                <option value="jp">T&#333;-ji</option>
+                                <option value="ea">Easter Statue</option>
+                                <option value="sx">Sphinx</option>
+                                <option value="bn">Big Ben</option>
+                            </select>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-justified">
+                                <a href="#" class="btn btn-danger" autofocus>Select</a>
+                                <a href="#" class="btn btn-danger">Erase</a>
+                                <a href="#" class="btn btn-danger">Group</a>
+                              </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                            <label for="menu" id="colors-label" class="menu-label">Colors</label><br>
+                        </td>
+                        <td>
+                            <label for="menu" id="material-label" class="menu-label">Materials</label><br>
+                        </td>
+                        <td>
+                            <label for="menu" id="obj-label" class="menu-label">Landmark</label><br>
+                        </td>
+                        <td>
+                            <label for="menu" id="mode-label" class="menu-label">Mode</label><br>
+                        </td>
+                      </tr>
+                </table>
+            </div>
+        </div>
+        <div id="transform-controls">
+            <table>
+                <tr>
+                    <td></td>
+                    <td>
+                        <label for="transform-controls" id="trans-label" class="menu-label">Translate</label><br>
+                    </td>
+                    <td>
+                        <label for="transform-controls" id="rot-label" class="menu-label">Rotate</label><br>
+                    </td>
+                    <td>
+                        <label for="transform-controls" id="scal-label" class="menu-label">Scale</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="transform-controls" id="y-label" class="cor-label">X</label><br>
+                    </td>
+                    <td>
+                        <div class="def-number-input number-input">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <input class="quantity" min="-10" name="quantity" value="1" type="number" id="x-trans" step="0.01">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                          </div>
+                    </td>
+                    <td class="rot-block">
+                        <input id="rot-range-x" type=range min=0 max=16 value=8>
+                    </td>
+                    <td>
+                        <div class="def-number-input number-input">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <input class="quantity" min="0.1" max="3" name="quantity" value="1" type="number" id="x-scal" step="0.01">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                          </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="transform-controls" id="y-label" class="cor-label">Y</label><br>
+                    </td>
+                    <td>
+                        <div class="def-number-input number-input">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <input class="quantity" min="-10" name="quantity" value="1" type="number" id="y-trans" step="0.01">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                          </div>
+                    </td>
+                    <td>
+                        <input id="rot-range-y" type=range min=0 max=16 value=8>
+                    </td>
+                    <td>
+                        <div class="def-number-input number-input">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <input class="quantity" min="0.1" max="3" name="quantity" value="1" type="number" id="y-scal" step="0.01">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                          </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="transform-controls" id="z-label" class="cor-label">Z</label><br>
+                    </td>
+                    <td>
+                        <div class="def-number-input number-input">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <input class="quantity" min="-10" name="quantity" value="1" type="number" id="z-trans" step="0.01">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                          </div>
+                    </td>
+                    <td>
+                        <input id="rot-range-z" type=range min=0 max=16 value=8>
+                    </td>
+                    <td>
+                        <div class="def-number-input number-input">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <input class="quantity" min="0.1" max="3" name="quantity" value="1" type="number" id="z-scal" step="0.01">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                          </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="center">
+                        <button type="button" class="btn btn-dark" id="trans-button">Apply</button>
+                    </td>
+                    <td align="center">
+                        <button type="button" class="btn btn-light" id="rot-button">Apply</button>
+                    </td>
+                    <td align="center">
+                        <button type="button" class="btn btn-secondary" id="sca-button">Apply</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <label for="" id="select-label"></label><br>
     </div>
 </body>
 </html>
