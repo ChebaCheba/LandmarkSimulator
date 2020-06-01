@@ -1,21 +1,5 @@
 "use strict"
 
-function displayPerspectiveCam(x, y, z){
-    // CAMERAS
-    camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
-    camera.position.set(x, y, z);
-    controls1 = new THREE.OrbitControls(camera, renderer.domElement);
-    controls1.maxPolarAngle = Math.PI/2+0.01;
-}
-
-function displayOrthogonalCam(x,y,z){
-    // CAMERAS
-    camera = new THREE.OrthographicCamera(-10,10, 20, 0, -500, 10000);
-    controls1 = new THREE.OrbitControls(camera, renderer.domElement);
-    camera.position.set(x,y,z);
-    controls1.maxPolarAngle = Math.PI/2+0.01;
-}
-
 function displaySunMoon(ySun, yMoon, sunInts, moonInts, sunD, moonD){
     // CREATE PIVOT FOR S/M ROTATATION
     pivot = new Group();
@@ -74,9 +58,11 @@ function displayBasicScene(){
         displayPerspectiveCam(20.,5.,5.);
     } else if(view=="orth"){
         displayOrthogonalCam(30.,50.,30.);
+    } else {
+        displayMultipleViews(20.,5.,5.);
     }
           
-    //camera.rotation.x = -Math.PI/2;
+    //
     //camera.rotation.z = 1.;
 
     //PYRAMID 
@@ -525,6 +511,9 @@ function displayBigBen(){
 }
 
 function displayInfo(){
+    if (view != "pers") {
+        return;
+    }
     // GEOMETRY
     var info = new THREE.PlaneGeometry(10, 10, 10, 10);
 

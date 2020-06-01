@@ -21,11 +21,15 @@
     <script src="js/lib/orbit-controls.js" type="text/javascript"></script>
     <script src="js/pyramids.js" type="text/javascript"></script>
     <script src="js/scenes.js" type="text/javascript"></script>
+    <script src="js/views.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body onload = main();>
     <div id="container">
-    <canvas id="canvas"></canvas>
+    <canvas class="can" id="canvas"></canvas>
+    <canvas class="can" id="canvas2"></canvas>
+    <canvas class="can" id="canvas3"></canvas>
+    <canvas class="can" id="canvas4"></canvas>
         <div id="controls">
             <label for="controls" id="controls-label">Sun/Moon Rotation Controls</label><br>
             <input id="rotation-range" type=range min=0 max=16 value=8>

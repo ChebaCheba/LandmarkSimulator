@@ -1,5 +1,5 @@
 "use strict"
-var canvas;
+var canvas, canvas2, canvas3, canvas4;
 var renderer, renderer2, renderer3, renderer4;
 var scene;
 var camera, camera2, camera3, camera4;
@@ -15,24 +15,6 @@ var infoDisplayed;
 var renderers, cameras, controls;
 var view;
 
-function setNormalRenderer(){
-    renderer = new THREE.WebGLRenderer({canvas: canvas});
-    renderer.setSize(canvas.width, canvas.height);
-    renderer.setClearColor("black");             
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-}
-
-function displayMultipleViews(){
-    renderer = new THREE.WebGLRenderer({canvas: canvas});
-    renderer.setSize(canvas.width/2, canvas.height/2);
-    renderer.setClearColor("black");             
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    camera = new THREE.OrthographicCamera(-10,10, 10, -10, -500, 10000);
-    
-}
-
 function main()
 {
     // INIT VAR
@@ -40,10 +22,11 @@ function main()
     changed = false;
     infoDisplayed = false;
     view = "pers";
-    // RENDERER
+    // CANVAS
     canvas = document.getElementById("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas2 = document.getElementById("canvas2");
+    canvas3 = document.getElementById("canvas3");
+    canvas4 = document.getElementById("canvas4");
 
     setNormalRenderer();
     //displayMultipleViews();    
@@ -86,7 +69,14 @@ function sunRotate(){
 function renderLoop() {
     renderer.autoClear = false;
     renderer.clear();
-    renderer.render(scene, camera);
+    if(view == "pers" || view == "orth"){
+        renderer.render(scene, camera);
+    } else {
+        renderer.render(scene, camera);
+        renderer2.render(scene, camera2);
+        renderer3.render(scene, camera3);
+        renderer4.render(scene, camera4);
+    }
     if (rotate){
         sunRotate();
     }

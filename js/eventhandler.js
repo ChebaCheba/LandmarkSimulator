@@ -1,7 +1,11 @@
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    renderer.setSize(canvas.width, canvas.height);
+    if(view!="mult"){
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        renderer.setSize(canvas.width, canvas.height);
+    } else{
+        displayMultipleViews(40., 5., 5.);
+    }
 }
 
 function changeRotation() {
@@ -66,10 +70,16 @@ function changeView(){
     switch(option) {
         case "pers":
             view = "pers";
+            setNormalRenderer();
             changeScene();
             break;
         case "orth":
             view = "orth";
+            setNormalRenderer();
+            changeScene();
+            break;
+        case "mult":
+            view = "mult";
             changeScene();
             break;
     }
