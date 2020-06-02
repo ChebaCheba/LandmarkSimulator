@@ -168,10 +168,10 @@ function displayEiffel(){
     var meshPy = null;
     var objLoader = new THREE.OBJLoader();
     objLoader.load( './models/10067_Eiffel_Tower_v1_max2010_it1.obj', function ( object ) {
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
+        var texture = new THREE.TextureLoader().load( './textures/metal.jpg' );
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set( 20, 20 );
+        texture.repeat.set( 4, 4 );
     object.traverse( function ( child ) {
         if ( child instanceof THREE.Mesh ) {
             var mat = new THREE.MeshPhongMaterial( {
@@ -286,7 +286,7 @@ function displaySaintBasil(){
     objLoader.load( './models/10086_saint_basil_cathedral_v1_L3.obj', function ( object ) {
     object.traverse( function ( child ) {
         //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
+        var texture = new THREE.TextureLoader().load( './textures/redbrown.jpg' );
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set( 20, 20 );
@@ -347,7 +347,7 @@ function displayLiberty(){
     objLoader.load( './models/LibertStatue.obj', function ( object ) {
     object.traverse( function ( child ) {
         //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
+        var texture = new THREE.TextureLoader().load( './textures/seafom.jpg' );
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set( 20, 20 );
@@ -407,7 +407,7 @@ function displayJapaneseTemp(){
     objLoader.load( './models/Japanese_Temple.obj', function ( object ) {
     object.traverse( function ( child ) {
         //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
+        var texture = new THREE.TextureLoader().load( './textures/red.jpg' );
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set( 20, 20 );
@@ -524,7 +524,7 @@ function displaySphinx(){
     objLoader.load( './models/10085_egypt_sphinx_iterations-2.obj', function ( object ) {
     object.traverse( function ( child ) {
         //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
+        var texture = new THREE.TextureLoader().load( './textures/sand.jpg' );
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set( 20, 20 );
@@ -583,7 +583,7 @@ function displayBigBen(){
     objLoader.load( './models/15586_Big_Ben_Clock_Tower_v1.obj', function ( object ) {
     object.traverse( function ( child ) {
         //var texture = new THREE.Texture();
-        var texture = new THREE.TextureLoader().load( './textures/rocksurface.jpg' );
+        var texture = new THREE.TextureLoader().load( './textures/yellow.jpg' );
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set( 20, 20 );

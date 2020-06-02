@@ -23,7 +23,7 @@
 }
 #edit{
     position: absolute;
-    left: 18%;
+    left: 20%;
     top: 85%;
 }
 #transform-controls {
@@ -110,7 +110,7 @@
     color: azure;
     font-size: xx-large;
     top: 5%;
-    left: 30%;
+    left: 40%;
 }
 .number-input input[type="number"] {
     -webkit-appearance: textfield;

@@ -130,7 +130,8 @@ function onMouseClick(event){
         //selectedObj = intersects[0].object;
         if(editM){
             selectedObj = intersects[0].object;
-            document.getElementById("select-label").innerHTML = "Selected Object: "+intersects[0].object.name;  
+            document.getElementById("select-label").innerHTML = "Selected Object: "+intersects[0].object.name;
+            document.getElementById("selecter").innerHTML = "Unselect";  
         }
     
     }
@@ -173,6 +174,13 @@ function changeMaterial()
     }
 }
 
+function unSelect(){
+    if(selectedObj != null){
+        selectedObj = null;
+        document.getElementById("select-label").innerHTML = "Please Select a Landmark";
+        document.getElementById("selecter").innerHTML = "Select"; 
+    }
+}
 function colorPaletteEvent() {
     colorEdit = document.getElementById("vertexColour").colorValue.value;
     changeMaterial();
@@ -194,4 +202,5 @@ function initEvent() {
     document.getElementById("rot-button").addEventListener('click', rotateObj);
     document.getElementById("eraser").addEventListener('click', removeObject);
     document.getElementById("music-button").addEventListener('click', playMusic);
+    document.getElementById("selecter").addEventListener('click', unSelect);
  }
