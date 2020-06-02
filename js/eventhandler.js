@@ -136,6 +136,16 @@ function onMouseClick(event){
     }
 }
 
+function playMusic(){
+    if(mute){
+        mute = false;
+        sound.play();
+    } else {
+        mute = true;
+        sound.pause();
+    }
+}
+
 function changeMaterial()
 {
     value = document.getElementById("select-material").value;
@@ -180,4 +190,6 @@ function initEvent() {
     document.getElementById("trans-button").addEventListener('click', translateObj);
     document.getElementById("sca-button").addEventListener('click', scaleObj);
     document.getElementById("rot-button").addEventListener('click', rotateObj);
+    document.getElementById("eraser").addEventListener('click', removeObject);
+    document.getElementById("music-button").addEventListener('click', playMusic);
  }

@@ -16,6 +16,7 @@ var view;
 var editM;
 var colorEdit, matEdit;
 var selectedObj;
+var listener, sound, audioLoader, mute;
 
 function main()
 {
@@ -24,6 +25,7 @@ function main()
     changed = false;
     infoDisplayed = false;
     editM = false;
+    mute = true;
     view = "pers";
     colorEdit = 0x6134eb;
     matEdit = new THREE.MeshBasicMaterial({color: colorEdit, wireframe: true});

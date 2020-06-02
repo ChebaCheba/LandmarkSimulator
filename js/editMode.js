@@ -240,3 +240,11 @@ function changeMat(){
 function changeColor(){
     selectedObj.material.color.setHex(colorEdit);
 }
+
+function removeObject(){
+    if(selectedObj){
+        scene.remove(selectedObj);
+        selectedObj = null;
+        document.getElementById("select-label").innerHTML = "";
+    }
+}

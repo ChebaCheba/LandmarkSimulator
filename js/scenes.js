@@ -61,9 +61,8 @@ function displayBasicScene(){
     } else {
         displayMultipleViews(20.,5.,5.);
     }
-          
-    //
-    //camera.rotation.z = 1.;
+    
+    displayMusic('egypt_music.ogg');
 
     //PYRAMID 
     var pyramid = new Pyramid();

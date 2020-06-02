@@ -98,6 +98,7 @@ function displayPerspectiveCam(x, y, z){
     camera.position.set(x, y, z);
     controls1 = new THREE.OrbitControls(camera, renderer.domElement);
     controls1.maxPolarAngle = Math.PI/2-0.01;
+    displayMusic();
 }
 
 function displayOrthogonalCam(x,y,z){
@@ -106,4 +107,21 @@ function displayOrthogonalCam(x,y,z){
     controls1 = new THREE.OrbitControls(camera, renderer.domElement);
     camera.position.set(x,y,z);
     controls1.maxPolarAngle = Math.PI/2+0.01;
+}
+
+function displayMusic(track){
+        listener = new THREE.AudioListener();
+        camera.add( listener );
+
+        // create a global audio source
+        sound = new THREE.Audio( listener );
+
+        // load a sound and set it as the Audio object's buffer
+        audioLoader = new THREE.AudioLoader();
+        audioLoader.load( './music/'+track, function( buffer ) {
+	    sound.setBuffer( buffer );
+	    sound.setLoop( true );
+	    sound.setVolume( 0.5 );
+	    sound.pause();
+        });
 }

@@ -95,6 +95,11 @@
     position: absolute;
     display: block;
 }
+#music-button {
+    position: absolute;
+    left: 90%;
+    top: 55%;
+}
 #rot-range-x-label {
     color: azure;
     text-align: center;
