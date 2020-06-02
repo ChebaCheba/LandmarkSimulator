@@ -62,6 +62,9 @@ function displayBasicScene(){
         displayMultipleViews(20.,5.,5.);
     }
     
+    if(!mute){
+        playMusic();
+    }
     displayMusic('egypt_music.ogg');
 
     //PYRAMID 
@@ -94,6 +97,11 @@ function displayPyramidScene(){
     } else {
         displayMultipleViews(40.,5.,5.);
     }
+
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('mexico.ogg');
     //OBJLOADER
     var meshPy = null;
 
@@ -115,7 +123,7 @@ function displayPyramidScene(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.01,0.01,0.01);
-            child.name = "kukulkan";
+            child.name = "landmark";
             scene.add(child);
             
        }
@@ -151,6 +159,11 @@ function displayEiffel(){
     } else {
         displayMultipleViews(130.,20.,5.);
     }
+
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('france.ogg');
     //OBJLOADER
     var meshPy = null;
     var objLoader = new THREE.OBJLoader();
@@ -169,7 +182,7 @@ function displayEiffel(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.002,0.002,0.002);
-            child.name = "eiffel";
+            child.name = "landmark";
             scene.add(child);
        }
     meshPy = object;
@@ -199,6 +212,11 @@ function displayColosseum(){
     } else {
         displayMultipleViews(70.,7.,5.);
     }
+
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('italy.ogg');
      //OBJLOADER
      var meshPy = null;
  
@@ -219,7 +237,7 @@ function displayColosseum(){
              child.material = mat;
              child.castShadow = true;
             child.scale.set(5,5,5);
-            child.name = "colosseum";
+            child.name = "landmark";
             child.position.y = -5.5;
             child.position.x = -5.5;
             scene.add(child);
@@ -256,6 +274,11 @@ function displaySaintBasil(){
     } else {
         displayMultipleViews(130.,30.,5.);
     }
+
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('russia.ogg');
     //OBJLOADER
     var meshPy = null;
 
@@ -277,7 +300,7 @@ function displaySaintBasil(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.001,0.001,0.001);
-            child.name = "saintbasil";
+            child.name = "landmark";
             scene.add(child);
 
        }
@@ -312,6 +335,11 @@ function displayLiberty(){
     } else {
         displayMultipleViews(50.,50.,5.);
     }
+
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('us.ogg');
     //OBJLOADER
     var meshPy = null;
 
@@ -332,7 +360,7 @@ function displayLiberty(){
             child.material = mat;
             child.castShadow = true;
             child.scale.set(20,20,20);
-            child.name = "statueofliberty";
+            child.name = "landmark";
             scene.add(child);
 
 
@@ -368,6 +396,10 @@ function displayJapaneseTemp(){
     } else {
         displayMultipleViews(100.,30.,5.);
     }
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('japan.ogg');
     //OBJLOADER
     var meshPy = null;
 
@@ -387,7 +419,7 @@ function displayJapaneseTemp(){
 
             child.material = mat;
             child.castShadow = true;
-            child.name = "tojitemp";
+            child.name = "landmark";
             scene.add(child);
        }
     });
@@ -422,6 +454,10 @@ function displayEaster(){
         displayMultipleViews(100.,30.,5.);
     }
     //OBJLOADER
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('easter.ogg');
     var meshPy = null;
 
     var objLoader = new THREE.OBJLoader();
@@ -443,7 +479,7 @@ function displayEaster(){
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.1,0.1,0.1);
             child.position.y = -3.5;
-            child.name = "easterstatue";
+            child.name = "landmark";
             scene.add(child);
        }
     });
@@ -476,6 +512,11 @@ function displaySphinx(){
     } else {
         displayMultipleViews(100.,30.,5.);
     }
+    
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('egypt_music.ogg');
     //OBJLOADER
     var meshPy = null;
 
@@ -497,7 +538,7 @@ function displaySphinx(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(0.01,0.01,0.01);
-            child.name = "sphinx";
+            child.name = "landmark";
             scene.add(child);
        }
     });
@@ -530,6 +571,11 @@ function displayBigBen(){
     } else {
         displayMultipleViews(130.,80.,50.);
     }
+
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('britain.ogg');
     //OBJLOADER
     var meshPy = null;
 
@@ -551,7 +597,7 @@ function displayBigBen(){
             child.castShadow = true;
             child.rotation.x = -Math.PI/2;
             child.scale.set(5,5,5);
-            child.name = "bigben";
+            child.name = "landmark";
             child.position.y = -3;
             scene.add(child);
        }
@@ -623,6 +669,7 @@ function displayInfo(){
     var infoMaterial = new THREE.MeshBasicMaterial({map: infoTexture, transparent: true});
     var infoMesh = new THREE.Mesh(info,infoMaterial);
     infoMesh.name = "info";
+    infoObj = infoMesh;
     camera.add(infoMesh);
     infoMesh.position.set(0,0,-10)
 }

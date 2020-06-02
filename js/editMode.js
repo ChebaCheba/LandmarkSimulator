@@ -4,6 +4,8 @@ function loadEditTools(){
     document.getElementById("transform-controls").style.visibility = "visible";
     document.getElementById("select-label").style.visibility = "visible";
     document.getElementById("controls").style.visibility = "hidden";
+    document.getElementById("change-scene").style.visibility = "hidden";
+    document.getElementById("change-camera").style.visibility = "hidden";
     
     document.getElementById("select-obj").addEventListener("change", putObj);
     editScene();
@@ -13,6 +15,10 @@ function unloadEditTools(){
     document.getElementById("edit").style.visibility = "hidden";
     document.getElementById("transform-controls").style.visibility = "hidden";
     document.getElementById("controls").style.visibility = "visible";
+    document.getElementById("change-scene").style.visibility = "visible";
+    document.getElementById("change-camera").style.visibility = "visible";
+    document.getElementById("select-label").innerHTML = "";
+    selectedObj = null;
     changeScene();
 }
 
@@ -22,6 +28,10 @@ function editScene(){
     directLight.position.set( 0, 1, 1 ).normalize();
     displayPerspectiveCam(40.,5.,5.);
     controls1.maxPolarAngle = 2*Math.PI;
+    if(!mute){
+        playMusic();
+    }
+    displayMusic('mii.ogg');
     scene = new THREE.Scene();
     scene.add(light);
     scene.add(directLight);

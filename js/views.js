@@ -110,6 +110,12 @@ function displayOrthogonalCam(x,y,z){
 }
 
 function displayMusic(track){
+
+        if(listener!= null){
+            camera.remove(listener);
+            sound.pause();
+        }
+
         listener = new THREE.AudioListener();
         camera.add( listener );
 

@@ -109,7 +109,7 @@ function keyDownEvent(event){
 
 function onMouseClick(event){
     if (infoDisplayed){
-        camera.remove(camera.children[0]);
+        camera.remove(infoObj);
         infoDisplayed = false;
         return;
     }
@@ -123,7 +123,7 @@ function onMouseClick(event){
     if (intersects.length > 0) {
         //document.getElementById("shape-name").innerHTML = intersects[0].object.name;
         console.log(intersects[0].object.name);
-        if(intersects[0].object.name!="floor" && !(editM)){
+        if((intersects[0].object.name=="landmark" || intersects[0].object.name=="pyramid") && !(editM)){
             displayInfo();
             infoDisplayed = true;
         }
@@ -140,9 +140,11 @@ function playMusic(){
     if(mute){
         mute = false;
         sound.play();
+        document.getElementById("music-button").value = "MuteMusic";
     } else {
         mute = true;
         sound.pause();
+        document.getElementById("music-button").value = "PlayMusic";
     }
 }
 

@@ -17,6 +17,7 @@ var editM;
 var colorEdit, matEdit;
 var selectedObj;
 var listener, sound, audioLoader, mute;
+var infoObj;
 
 function main()
 {
