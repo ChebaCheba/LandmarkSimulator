@@ -585,8 +585,42 @@ function displayInfo(){
     var info = new THREE.PlaneGeometry(10, 10, 10, 10);
 
     // MATERIAL
-    var infoTexture = new THREE.TextureLoader().load('./textures/info.png');
-    var infoMaterial = new THREE.MeshPhongMaterial({map: infoTexture, transparent: true});
+    var option = document.getElementById("select-scenes").value;
+    switch(option) {
+        case "pyramid":
+            var infoTexture = new THREE.TextureLoader().load('./textures/giza.jpg');
+            break;
+        case "kukulkan":
+            var infoTexture = new THREE.TextureLoader().load('./textures/kukulcan.jpg');
+            break;
+        case "colosseum":
+            var infoTexture = new THREE.TextureLoader().load('./textures/coliseo.jpg');
+            break;
+        case "eiffel":
+            var infoTexture = new THREE.TextureLoader().load('./textures/eiffel.jpg');
+            break;
+        case "saintB":
+            var infoTexture = new THREE.TextureLoader().load('./textures/basilio.jpg');
+            break;
+        case "statueOL":
+            var infoTexture = new THREE.TextureLoader().load('./textures/libertad.jpg');
+            break;
+        case "japanTemp":
+            var infoTexture = new THREE.TextureLoader().load('./textures/toji.jpg');
+            break;
+        case "easterSta":
+            var infoTexture = new THREE.TextureLoader().load('./textures/moai.jpg');
+            break;
+        case "sphinx":
+            var infoTexture = new THREE.TextureLoader().load('./textures/esfinge.jpg');
+            break;
+        case "bigben":
+            var infoTexture = new THREE.TextureLoader().load('./textures/ben.jpg');
+            break;
+      }
+
+    //var infoTexture = new THREE.TextureLoader().load('./textures/giza.jpg');
+    var infoMaterial = new THREE.MeshBasicMaterial({map: infoTexture, transparent: true});
     var infoMesh = new THREE.Mesh(info,infoMaterial);
     infoMesh.name = "info";
     camera.add(infoMesh);
