@@ -58,7 +58,7 @@
             <label for="controls" id="cam-label">Change View</label><br>
             <select class="selectpicker" data-style="btn-warning" id="select-cams">
                 <option value="pers">Perspective</option>
-                <option value="orth">Orthogonal</option>
+                <option value="orth">Orthographic</option>
                 <option value="mult">Multiple Views</option>
             </select>
             </div>
@@ -98,8 +98,7 @@
                         </td>
                         <td>
                             <div class="btn-group btn-group-justified">
-                                <a href="#" class="btn btn-warning" autofocus>Select</a>
-                                <a href="#" class="btn btn-warning">Group</a>
+                                <a href="#" class="btn btn-warning" id="selecter" autofocus>Select</a>
                                 <a href="#" class="btn btn-danger" id="eraser">Erase</a>
                               </div>
                         </td>
@@ -142,7 +141,7 @@
                     <td>
                         <div class="def-number-input number-input">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="quantity" min="-10" name="quantity" value="1" type="number" id="x-trans" step="0.01">
+                            <input class="quantity" min="-10" name="quantity" value="1" type="number" id="x-trans" step="0.1">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                           </div>
                     </td>
@@ -152,7 +151,7 @@
                     <td>
                         <div class="def-number-input number-input">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="quantity" min="0.1" max="3" name="quantity" value="1" type="number" id="x-scal" step="0.01">
+                            <input class="quantity" min="0.1" max="3" name="quantity" value="1" type="number" id="x-scal" step="0.1">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                           </div>
                     </td>
@@ -164,7 +163,7 @@
                     <td>
                         <div class="def-number-input number-input">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="quantity" min="-10" name="quantity" value="1" type="number" id="y-trans" step="0.01">
+                            <input class="quantity" min="-10" name="quantity" value="1" type="number" id="y-trans" step="0.1">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                           </div>
                     </td>
@@ -174,7 +173,7 @@
                     <td>
                         <div class="def-number-input number-input">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="quantity" min="0.1" max="3" name="quantity" value="1" type="number" id="y-scal" step="0.01">
+                            <input class="quantity" min="0.1" max="3" name="quantity" value="1" type="number" id="y-scal" step="0.1">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                           </div>
                     </td>
@@ -186,7 +185,7 @@
                     <td>
                         <div class="def-number-input number-input">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="quantity" min="-10" name="quantity" value="1" type="number" id="z-trans" step="0.01">
+                            <input class="quantity" min="-10" name="quantity" value="1" type="number" id="z-trans" step="0.1">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                           </div>
                     </td>
@@ -196,7 +195,7 @@
                     <td>
                         <div class="def-number-input number-input">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="quantity" min="0.1" max="3" name="quantity" value="1" type="number" id="z-scal" step="0.01">
+                            <input class="quantity" min="0.1" max="3" name="quantity" value="1" type="number" id="z-scal" step="0.1">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                           </div>
                     </td>

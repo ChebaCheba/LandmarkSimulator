@@ -6,7 +6,8 @@ function loadEditTools(){
     document.getElementById("controls").style.visibility = "hidden";
     document.getElementById("change-scene").style.visibility = "hidden";
     document.getElementById("change-camera").style.visibility = "hidden";
-    
+    document.getElementById("select-label").innerHTML = "Please Select a Landmark";
+
     document.getElementById("select-obj").addEventListener("change", putObj);
     editScene();
 }
@@ -46,7 +47,9 @@ function addObj(obj){
             pyramid.scale.set(5,5,5);
             pyramid.setTextureMaterial();
             scene.add(pyramid);
-            break;
+            selectedObj = pyramid;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";
         case "kn":
             var objLoader = new THREE.OBJLoader();
             objLoader.load( './models/altar_pyramid.obj', function ( object ) {
@@ -61,7 +64,9 @@ function addObj(obj){
             child.scale.set(0.01,0.01,0.01);
             child.name = "Kukulkan";
             scene.add(child);
-            
+            selectedObj = child;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";
        }
     });
     } );
@@ -81,7 +86,9 @@ function addObj(obj){
             child.position.y = -5.5;
             child.position.x = -5.5;
             scene.add(child);
- 
+            selectedObj = child;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";
         }
      });
      meshPy = object;
@@ -99,6 +106,9 @@ function addObj(obj){
             child.scale.set(0.002,0.002,0.002);
             child.name = "Eiffel";
             scene.add(child);
+            selectedObj = child;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";
        }
 
     } );});
@@ -116,7 +126,9 @@ function addObj(obj){
             child.scale.set(0.001,0.001,0.001);
             child.name = "SaintBasil";
             scene.add(child);
-
+            selectedObj = child;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";
        }
     });
 
@@ -134,8 +146,9 @@ function addObj(obj){
             child.scale.set(20,20,20);
             child.name = "SatueOfLiberty";
             scene.add(child);
-
-
+            selectedObj = child;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";
        }
     });
 
@@ -152,6 +165,9 @@ function addObj(obj){
             child.castShadow = true;
             child.name = "TojoTemple";
             scene.add(child);
+            selectedObj = child;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";  
        }
     });
 
@@ -171,6 +187,9 @@ function addObj(obj){
             child.position.y = -3.5;
             child.name = "EasterStatue";
             scene.add(child);
+            selectedObj = child;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";
        }
     });
     } );
@@ -188,6 +207,9 @@ function addObj(obj){
             child.scale.set(0.01,0.01,0.01);
             child.name = "Sphinx";
             scene.add(child);
+            selectedObj = child;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";
        }
     });
     } );
@@ -206,6 +228,9 @@ function addObj(obj){
             child.name = "BigBen";
             child.position.y = -3;
             scene.add(child);
+            selectedObj = child;
+            document.getElementById("select-label").innerHTML = "Selected Object: "+selectedObj.name;
+            document.getElementById("selecter").innerHTML = "Unselect";
        }
     });
 
@@ -255,6 +280,7 @@ function removeObject(){
     if(selectedObj){
         scene.remove(selectedObj);
         selectedObj = null;
-        document.getElementById("select-label").innerHTML = "";
+        document.getElementById("select-label").innerHTML = "Please Select a Landmark";
+        document.getElementById("selecter").innerHTML = "Select"; 
     }
 }
